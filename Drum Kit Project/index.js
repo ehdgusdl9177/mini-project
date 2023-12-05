@@ -1,9 +1,8 @@
 let numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 for (let i = 0; i < numberOfDrumButtons; i++) {
-  document.querySelector("drum")[i].addEventListener("click", handleClick);
-
-  const handleClick = () => {
-    alert("I got click!");
-  };
+  document.querySelectorAll(".drum")[i].addEventListener("click", () => {
+    let audio = new Audio("sounds/tom-1.mp3");
+    audio.play();
+  });
 }
