@@ -17,9 +17,24 @@ $(".btn").click(function () {
   userClickedPattern.push(userChosenColour);
   playSound(userChosenColour);
   animatePress(userChosenColour);
+  checkAnswer(userClickedPattern.length - 1);
 });
 
+function checkAnswer(currentLevel) {
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    console.log("Success");
+    if (gamePattern.length === userClickedPattern.length) {
+      setTimeout(() => {
+        nextSequence();
+      }, 1000);
+    }
+  } else {
+    console.log("Wrong");
+  }
+}
+
 function nextSequence() {
+  userClickedPattern = [];
   level++;
   $("#level-title").text(`Level ${level}`);
   let randomNumber = Math.floor(Math.random() * 4);
