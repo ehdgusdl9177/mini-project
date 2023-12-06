@@ -4,7 +4,7 @@ let userClickedPattern = [];
 $(".btn").click(function () {
   let userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
-  console.log(userClickedPattern);
+  playSound(userChosenColour);
 });
 
 function nextSequence() {
@@ -17,6 +17,10 @@ function nextSequence() {
     .fadeOut(100)
     .fadeIn(100);
 
-  let audio = new Audio(`sounds/${randomChosenColour}.mp3`);
+  playSound(randomChosenColour);
+}
+
+function playSound(name) {
+  let audio = new Audio(`sounds/${name}.mp3`);
   audio.play();
 }
