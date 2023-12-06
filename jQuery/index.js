@@ -18,3 +18,7 @@ $("h1").on("mouseover", function () {
 $("h1").prepend("<button>New</button>");
 
 $("h1").append("<button>ROA</button>");
+
+$("button").on("click", function () {
+  $("h1").slideUp().slideDown().animate({ opacity: 0.5 });
+});
