@@ -27,6 +27,7 @@ app.get("/", async (req, res) => {
       secret: result.data.secret,
       user: result.data.username,
     });
+    console.log(result);
     console.log(result.data);
   } catch (error) {
     console.log(error.response.data);
