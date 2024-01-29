@@ -16,14 +16,12 @@ const App = () => {
       <MainNavigation />
       <main>
         <Switch>
-          <Route path="/" exact={true}>
+          <Route path="/" exact>
             <Users />
           </Route>
-
-          <Route path="/places/new" exact={true}>
+          <Route path="/places/new" exact>
             <NewPlace />
           </Route>
-
           <Redirect to="/" />
         </Switch>
       </main>
