@@ -16,6 +16,7 @@ import { AuthContext } from "./shared/context/auth-context";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
@@ -44,7 +45,7 @@ const App = () => {
             <Route path="/places/:placeId">
               <UpdatePlace />
             </Route>
-            <Route apth="/auth">
+            <Route path="/auth">
               <Auth />
             </Route>
             <Redirect to="/" />
