@@ -1,6 +1,8 @@
 const { v4: uuidv4 } = require("uuid");
 const uuid = uuidv4();
 
+const HttpError = require("../models/http-error");
+
 const DUMMY_PLACES = [
   {
     id: "u1",
@@ -29,7 +31,18 @@ const signup = (req, res, next) => {
   res.status(201).json({ user: createUser });
 };
 
-const login = (req, res, next) => {};
+const login = (req, res, next) => {
+  const { email, password } = req.body;
+
+  const identifiedUser = DUMMY_PLACES.find((p) => p.email === email);
+  if (!identifiedUser || identifiedUser.password !== password) {
+    throw new HttpError(
+      "Could not identify user, credentials seem to be wrong.",
+      401
+    );
+  }
+  res.json({ message: "Logged in!" });
+};
 
 exports.getUsers = getUsers;
 exports.signup = signup;
