@@ -14,7 +14,20 @@ const getUsers = (req, res, next) => {
   res.json({ users: DUMMY_PLACES });
 };
 
-const signup = (req, res, next) => {};
+const signup = (req, res, next) => {
+  const { name, email, password } = req.body;
+
+  const createUser = {
+    id: uuid,
+    name,
+    email,
+    password,
+  };
+
+  DUMMY_PLACES.push(createUser);
+
+  res.status(201).json({ user: createUser });
+};
 
 const login = (req, res, next) => {};
 
