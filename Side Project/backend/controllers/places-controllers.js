@@ -76,6 +76,12 @@ const createPlace = (req, res, next) => {
 };
 
 const updatePlaceById = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    throw new HttpError("Invalid inputs passed, please check your data.", 422);
+  }
+
   const { title, description } = req.body;
   const placeId = req.params.pid;
 
