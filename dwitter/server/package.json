@@ -1,0 +1,17 @@
+{
+  "name": "dwitter",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "keywords": [],
+  "author": "hyeon",
+  "license": "ISC",
+  "description": "twitter coding",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
