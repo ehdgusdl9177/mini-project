@@ -4,10 +4,10 @@ export default class HttpClient {
   }
 
   async fetch(url, options) {
-    const res = await this.fetch(`${this.baseURL}${url}`, {
+    const res = await fetch(`${this.baseURL}${url}`, {
       ...options,
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
         ...options.headers,
       },
     });
@@ -17,9 +17,10 @@ export default class HttpClient {
     } catch (error) {
       console.error(error);
     }
+
     if (res.status > 299 || res.status < 200) {
       const message =
-        data && data.message ? data.message : "Something went wrong!";
+        data && data.message ? data.message : "Something went wrong! 🤪";
       throw new Error(message);
     }
     return data;
